@@ -1,0 +1,127 @@
+
+[
+    {
+        "images": [
+            "https://i.ibb.co/tMrrW1T/img1.png"
+        ],
+        "price": {
+            "real_price": 290,
+            "discounted_price": 244
+        },
+        "category": "cosmetics",
+        "rating": 4.5,
+        "review": 20,
+        "product_id": "SKU - 69764401",
+        "specification": {
+            "title": "Dove Conditioner Hairfall Rescue",
+            "summary": "Beat the heat with the refreshing Orange Tang. Enjoy its yummy taste with the benefits of Vitamin A, B and C and Iron. Rejuvenate your day by drinking a glass full of fresh and energetic drink- which gives you 60 percent of your Vitamin C requirement of the day.Tang makes water more fun to drink ensuring that your family stays hydrated – a glass of Tang gives your child vitamins required for the entire day. No need to add sugar, just add the powder to water and enjoy the delicious drink on the go",
+            "brand": "Dove",
+            "volume": "170ML",
+            "item_form": "Liquid",
+            "product_type": "Shampoo"
+        }
+    },
+    {
+        "images": [
+            "https://i.ibb.co/YcYJcRT/img-1.jpg",
+            "https://i.ibb.co/Y7X1ht1/img2.jpg"
+        ],
+        "price": {
+            "real_price": 270,
+            "discounted_price": 253
+        },
+        "rating": 0,
+        "review": 0,
+        "specification": {
+            "title": "Rin Washing Liquid 800 Ml - 69737578",
+            "summary": "Beat the heat with the refreshing Orange Tang. Enjoy its yummy taste with the benefits of Vitamin A, B and C and Iron. Rejuvenate your day by drinking a glass full of fresh and energetic drink- which gives you 60 percent of your Vitamin C requirement of the day.Tang makes water more fun to drink ensuring that your family stays hydrated – a glass of Tang gives your child vitamins required for the entire day. No need to add sugar, just add the powder to water and enjoy the delicious drink on the go",
+            "brand": "Unilever Bangladesh",
+            "volume": "800ml",
+            "item_form": "Liquid",
+            "product_type": "Washing Liquid"
+        }
+    },
+    {
+        "images": [
+            "https://i.ibb.co/r4Z7JTn/img-1.jpg",
+            "https://i.ibb.co/8bFCfpz/IMG-2.png"
+        ],
+        "price": {
+            "real_price": 200,
+            "discounted_price": 200
+        },
+        "rating": 0,
+        "review": 0,
+        "product_id": "1041",
+        "specification": {
+            "title": "Nutri Plus Tiffin Plus Orange Chocolate Value Pack - 168 gm",
+            "summary": "Beat the heat with the refreshing Orange Tang. Enjoy its yummy taste with the benefits of Vitamin A, B and C and Iron. Rejuvenate your day by drinking a glass full of fresh and energetic drink- which gives you 60 percent of your Vitamin C requirement of the day.Tang makes water more fun to drink ensuring that your family stays hydrated – a glass of Tang gives your child vitamins required for the entire day. No need to add sugar, just add the powder to water and enjoy the delicious drink on the go",
+            "brand": "Nutri+",
+            "product_type": "Choco - Orange"
+        }
+    },
+    {
+        "images": [
+            "https://i.ibb.co/Bt4t4PP/img-6.jpg",
+            "https://i.ibb.co/mJj06rY/img7.jpg",
+            "https://i.ibb.co/jM4KLww/img8.jpg",
+            "https://i.ibb.co/93tLqff/img9.jpg",
+            "https://i.ibb.co/Xx5qT86/vesline-5.jpg"
+        ],
+        "price": {
+            "real_price": 380,
+            "discounted_price": 344
+        },
+        "rating": 0,
+        "review": 0,
+        "specification": {
+            "title": "Vaseline Lotion Healthy Bright - 300 ml - 69617132",
+            "summary": "Beat the heat with the refreshing Orange Tang. Enjoy its yummy taste with the benefits of Vitamin A, B and C and Iron. Rejuvenate your day by drinking a glass full of fresh and energetic drink- which gives you 60 percent of your Vitamin C requirement of the day.Tang makes water more fun to drink ensuring that your family stays hydrated – a glass of Tang gives your child vitamins required for the entire day. No need to add sugar, just add the powder to water and enjoy the delicious drink on the go",
+            "brand": "Vaseline",
+            "volume": "300ml",
+            "item_form": "Lotion"
+        }
+    },
+    {
+        "images": [
+            "https://i.ibb.co/Js10j1x/img-2.png",
+            "https://i.ibb.co/88xJkkP/img3.png",
+            "https://i.ibb.co/5LXnx2W/img4.jpg",
+            "https://i.ibb.co/6ZVBdSC/img-5.jpg",
+            "https://i.ibb.co/W0jTvrP/dove-5.jpg",
+            "https://i.ibb.co/Cb6vbcy/dove-6.jpg"
+        ],
+        "price": {
+            "real_price": 150,
+            "discounted_price": 137
+        },
+        "rating": 0,
+        "review": 0,
+        "specification": {
+            "title": "Dove Beauty Bar White 90 Gm - 69767528",
+            "summary": "Beat the heat with the refreshing Orange Tang. Enjoy its yummy taste with the benefits of Vitamin A, B and C and Iron. Rejuvenate your day by drinking a glass full of fresh and energetic drink- which gives you 60 percent of your Vitamin C requirement of the day.Tang makes water more fun to drink ensuring that your family stays hydrated – a glass of Tang gives your child vitamins required for the entire day. No need to add sugar, just add the powder to water and enjoy the delicious drink on the go",
+            "brand": "Dove"
+        }
+    },
+    {
+        "images": [
+            "https://i.ibb.co/RvQ8s0k/img-1.jpg",
+            "https://i.ibb.co/GRJ1G4Q/img-2.jpg",
+            "https://i.ibb.co/k30BxRr/img-3.jpg",
+            "https://i.ibb.co/swzKJb3/img-4.jpg"
+        ],
+        "price": {
+            "real_price": 350,
+            "discounted_price": 336
+        },
+        "rating": 0,
+        "review": 0,
+        "specification": {
+            "title": "Tang Orange Flavoured Instant Drink Powder (500 gm) - 4278950",
+            "summary": "Beat the heat with the refreshing Orange Tang. Enjoy its yummy taste with the benefits of Vitamin A, B and C and Iron. Rejuvenate your day by drinking a glass full of fresh and energetic drink- which gives you 60 percent of your Vitamin C requirement of the day.Tang makes water more fun to drink ensuring that your family stays hydrated – a glass of Tang gives your child vitamins required for the entire day. No need to add sugar, just add the powder to water and enjoy the delicious drink on the go",
+            "brand": "Tang",
+            "volume": "500 Grams",
+            "product_type": "Instant Flavored Drink Powder"
+        }
+    }
+]
