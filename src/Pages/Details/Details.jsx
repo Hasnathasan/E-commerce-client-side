@@ -4,6 +4,10 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Rating from "react-rating";
 import { FaRegStar, FaStar, FaTag } from "react-icons/fa";
+import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import useCarts from "../../Components/useCarts";
 
 function ThumbnailPlugin(mainRef) {
   return (slider) => {
@@ -40,6 +44,8 @@ function ThumbnailPlugin(mainRef) {
 
 const Details = () => {
   const {id} = useParams();
+  const {user} = useContext(AuthContext);
+  const [, , refetch] = useCarts();
   const { data: product, isLoading: isProductLoading } = useQuery({
     queryKey: [`product/${id}`],
     queryFn: async () => {
@@ -67,7 +73,12 @@ const Details = () => {
   if (isProductLoading) {
     return <h1>Loading</h1>;
   }
-  const { specification, price } = product;
+  const { specification, price, category, images, review, rating } = product;
+  const cartItem = {addedBy: user?.email, category, images, specification, review, rating}
+  const handleAddToCart = () => {
+    axios.post(`http://localhost:5000/carts`, cartItem)
+      .then(res => console.log(res))
+  }
   return (
     <div className="mx-auto max-w-[1160px] my-10 rounded-lg shadow-lg shadow-cyan-50">
       <div className="bg-white flex flex-col md:flex-row p-5 gap-10"> 
@@ -116,7 +127,7 @@ const Details = () => {
             <div>
             <p className="text-green-500 text-sm flex mt-16 items-center gap-2"><FaTag></FaTag>১০% অতিরিক্ত ছাড় ও নিশ্চিত ফ্রি শিপিং পশ্চিমবঙ্গের ৭৯৯+৳ বাংলা বই অর্ডারে।</p>
             <p className="text-green-500 text-sm flex my-3 items-center gap-2"><FaTag></FaTag>BD এর প্রতিটি পণ্যের সাথে নিশ্চিত ১টি 35ml Rin liquid ফ্রি! এছাড়াও ২৯% পর্যন্ত ছাড়!</p>
-            <button className="md:px-4 py-2 w-32 md:w-36 border border-black hover:bg-[#63b5f8] hover:border-[#63b5f8] hover:text-white">Add to Cart</button>
+            <button onClick={ () => handleAddToCart()} className="md:px-4 py-2 w-32 md:w-36 border border-black hover:bg-[#63b5f8] hover:border-[#63b5f8] hover:text-white">Add to Cart</button>
             </div>
         </div>
       </div>
