@@ -21,7 +21,7 @@ const  NavigationBar = () => {
  
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <Typography
+        <Typography
         as="li"
         variant="h6"
         color="blue-gray"
@@ -31,7 +31,9 @@ const  NavigationBar = () => {
           Cart
         </NavLink>
       </Typography>
-      <Typography
+      
+      
+        <Typography
         as="li"
         variant="h6"
         color="blue-gray"
@@ -41,7 +43,8 @@ const  NavigationBar = () => {
           Details
         </NavLink>
       </Typography>
-      <Typography
+      
+        <Typography
         as="li"
         variant="h6"
         color="blue-gray"
@@ -51,7 +54,8 @@ const  NavigationBar = () => {
           Blocks
         </NavLink>
       </Typography>
-      <Typography
+      
+        <Typography
         as="li"
         variant="h6"
         color="blue-gray"
@@ -61,11 +65,13 @@ const  NavigationBar = () => {
           Docs
         </NavLink>
       </Typography>
+      
+      
     </ul>
   );
  
   return (
-      <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
+      <Navbar className="sticky top-0 z-50 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"

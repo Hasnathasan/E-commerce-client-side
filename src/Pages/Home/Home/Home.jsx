@@ -3,10 +3,7 @@ import Banner from "../Banner/Banner";
 import ProductContainer from "../Product/ProductContainer";
 
 const Home = () => {
-    const [cosmetics, isCosmeticsLoading] = useCosmetics();
-    if(isCosmeticsLoading){
-        return
-    }
+    const [cosmetics] = useCosmetics();
     return (
         <div>
             <Banner></Banner>

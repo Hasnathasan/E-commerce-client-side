@@ -34,6 +34,9 @@ const  SamplePrevArrow = (props) => {
 
 
 const ProductContainer = ({products, heading}) => {
+  if(!products){
+    return
+  }
     let settings = {
         infinite: false,
         speed: 500,
@@ -70,7 +73,7 @@ const ProductContainer = ({products, heading}) => {
         ]
       };
     return (
-        <div className=" max-w-[1260px] mx-auto px-5 py-10  my-20 border-[1px] border-blue-50 bg-white shadow shadow-blue-100">
+        <div className=" max-w-[1260px] mx-auto bg-white px-5 py-10  my-20 rounded-lg shadow-lg shadow-cyan-50">
           <h2 className="text-2xl font-bold text-gray-700 mb-3">{heading}</h2>
             <Slider  {...settings}> 
               {
