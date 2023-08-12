@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import ProductCard from "../ProductCard/ProductCard";
+import { Card } from "@material-tailwind/react";
 
 
 
@@ -73,14 +74,14 @@ const ProductContainer = ({products, heading}) => {
         ]
       };
     return (
-        <div className=" max-w-[1260px] mx-auto bg-white px-5 py-10  my-20 rounded-lg shadow-lg shadow-cyan-50">
+        <Card className=" max-w-[1260px] mx-auto bg-white px-5 py-10  my-20">
           <h2 className="text-2xl font-bold text-gray-700 mb-3">{heading}</h2>
             <Slider  {...settings}> 
               {
                 products?.map((product, index) => <ProductCard key={index} product={product}></ProductCard>)
               }
         </Slider>
-        </div>
+        </Card>
     );
 };
 

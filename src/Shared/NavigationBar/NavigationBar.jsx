@@ -10,11 +10,13 @@ import {
   Avatar,
   MenuList,
   MenuItem,
+  Badge,
 } from "@material-tailwind/react";
 import { Link, NavLink } from "react-router-dom";
 import './NavigationBar.css'
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaAngleDown } from "react-icons/fa";
+import useCarts from "../../Components/useCarts";
  
 
 
@@ -23,7 +25,7 @@ import { FaAngleDown } from "react-icons/fa";
 const  NavigationBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+  const [carts] = useCarts();
   const {user, logOut} = useContext(AuthContext);
   useEffect(() => {
     window.addEventListener(
@@ -40,46 +42,22 @@ const  NavigationBar = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <NavLink to='/cart' className="flex items-center">
+        <Badge content={carts ? carts.length : "0"} color="green">
+        <NavLink to='/cart' className="flex items-center p-1">
           Cart
         </NavLink>
+        </Badge>
       </Typography>
-      
-      
         <Typography
         as="li"
         variant="h6"
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <NavLink to='/details' className="flex items-center">
-          Details
+        <NavLink to='/allproducts' className="flex items-center">
+          All Products
         </NavLink>
       </Typography>
-      
-        <Typography
-        as="li"
-        variant="h6"
-        color="blue-gray"
-        className="p-1 font-normal"
-      >
-        <NavLink to='/blocks' className="flex items-center">
-          Blocks
-        </NavLink>
-      </Typography>
-      
-        <Typography
-        as="li"
-        variant="h6"
-        color="blue-gray"
-        className="p-1 font-normal"
-      >
-        <NavLink to='/docs' className="flex items-center">
-          Docs
-        </NavLink>
-      </Typography>
-      
-      
     </ul>
   );
   const closeMenu = () => setIsMenuOpen(false);

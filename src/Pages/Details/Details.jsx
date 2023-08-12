@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Rating from "react-rating";
@@ -8,6 +8,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useCarts from "../../Components/useCarts";
+import Swal from "sweetalert2";
 
 function ThumbnailPlugin(mainRef) {
   return (slider) => {
@@ -77,7 +78,17 @@ const Details = () => {
   const cartItem = {addedBy: user?.email, category, images, specification, review, rating}
   const handleAddToCart = () => {
     axios.post(`http://localhost:5000/carts`, cartItem)
-      .then(res => console.log(res))
+      .then(res => {
+        refetch()
+        console.log(res);
+        if(res.data?.insertedId){
+          Swal.fire(
+            'Product is added to cart',
+            'Go check cart',
+            'success'
+          )
+        }
+      })
   }
   return (
     <div className="mx-auto max-w-[1160px] my-10 rounded-lg shadow-lg shadow-cyan-50">
@@ -127,7 +138,9 @@ const Details = () => {
             <div>
             <p className="text-green-500 text-sm flex mt-16 items-center gap-2"><FaTag></FaTag>১০% অতিরিক্ত ছাড় ও নিশ্চিত ফ্রি শিপিং পশ্চিমবঙ্গের ৭৯৯+৳ বাংলা বই অর্ডারে।</p>
             <p className="text-green-500 text-sm flex my-3 items-center gap-2"><FaTag></FaTag>BD এর প্রতিটি পণ্যের সাথে নিশ্চিত ১টি 35ml Rin liquid ফ্রি! এছাড়াও ২৯% পর্যন্ত ছাড়!</p>
-            <button onClick={ () => handleAddToCart()} className="md:px-4 py-2 w-32 md:w-36 border border-black hover:bg-[#63b5f8] hover:border-[#63b5f8] hover:text-white">Add to Cart</button>
+            {
+              user ? <button onClick={ () => handleAddToCart()} className="md:px-4 py-2 w-32 md:w-36 border border-black hover:bg-[#63b5f8] hover:border-[#63b5f8] hover:text-white">Add to Cart</button> : <Link to='/login' ><button className="md:px-4 py-2 w-40 md:w-52 border border-black hover:bg-[#63b5f8] hover:border-[#63b5f8] hover:text-white">Login to add product</button></Link> 
+            }
             </div>
         </div>
       </div>
