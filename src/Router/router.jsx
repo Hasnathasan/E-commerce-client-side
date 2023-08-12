@@ -4,6 +4,9 @@ import Cart from "../Pages/Cart/Cart";
 import Details from "../Pages/Details/Details";
 import Home from "../Pages/Home/Home/Home";
 import Authentication from "../Pages/Authentication/Authentication";
+import AdminDashBoard from "../Pages/Dashboards/AdminDashboard/AdminDashBoard";
+import ProductContainer from "../Pages/Home/Product/ProductContainer";
+import ManageUsers from "../Pages/Dashboards/AdminDashboard/ManageUsers";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +31,24 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path: "/adminDashboard",
+      element: <AdminDashBoard></AdminDashBoard>,
+      children: [
+        {
+          path: "",
+          element: <Cart></Cart>
+        },
+        {
+          path: "allUsers",
+          element: <ManageUsers></ManageUsers>
+        },
+        {
+          path: "allProducts",
+          element: <Cart></Cart>
+        }
+      ]
+  }
   ]);
 
 export default router;

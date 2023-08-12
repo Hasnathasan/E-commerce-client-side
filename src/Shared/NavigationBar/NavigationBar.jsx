@@ -17,6 +17,7 @@ import './NavigationBar.css'
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaAngleDown } from "react-icons/fa";
 import useCarts from "../../Components/useCarts";
+import useUserRole from "../../Components/useUserRole";
  
 
 
@@ -26,6 +27,8 @@ const  NavigationBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [carts] = useCarts();
+  const [userRole] = useUserRole();
+  console.log(userRole);
   const {user, logOut} = useContext(AuthContext);
   useEffect(() => {
     window.addEventListener(
@@ -42,7 +45,7 @@ const  NavigationBar = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <Badge content={carts ? carts.length : "0"} color="green">
+        <Badge content={carts ? carts.length : 0} color="green">
         <NavLink to='/cart' className="flex items-center p-1">
           Cart
         </NavLink>
@@ -58,6 +61,18 @@ const  NavigationBar = () => {
           All Products
         </NavLink>
       </Typography>
+      {
+        userRole === "admin" ? <Typography
+        as="li"
+        variant="h6"
+        color="blue-gray"
+        className="p-1 font-normal"
+      >
+        <NavLink to='/adminDashboard' className="flex items-center">
+          Dashboard
+        </NavLink>
+      </Typography>: ""
+      }
     </ul>
   );
   const closeMenu = () => setIsMenuOpen(false);

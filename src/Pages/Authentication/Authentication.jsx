@@ -73,7 +73,7 @@ const Authentication = () => {
     console.log(email, number, password);
     signUpWithEmail(email, password)
       .then((result) => {
-        const newUser = { email: result.user.email, number: number };
+        const newUser = { email: result.user.email, number: number, role: "user" };
         axios.post("http://localhost:5000/users", newUser).then((data) => {
           if (data.data.insertedId) {
             Swal.fire(
