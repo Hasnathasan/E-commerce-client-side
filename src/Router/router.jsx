@@ -5,9 +5,11 @@ import Details from "../Pages/Details/Details";
 import Home from "../Pages/Home/Home/Home";
 import Authentication from "../Pages/Authentication/Authentication";
 import AdminDashBoard from "../Pages/Dashboards/AdminDashboard/AdminDashBoard";
-import ProductContainer from "../Pages/Home/Product/ProductContainer";
 import ManageUsers from "../Pages/Dashboards/AdminDashboard/ManageUsers";
 import ManageProducts from "../Pages/Dashboards/AdminDashboard/ManageProducts";
+import AllProducts from "../Pages/AllProducts/AllProducts";
+import ManageOrders from "../Pages/Dashboards/AdminDashboard/ManageOrders";
+import AdminHome from "../Pages/Dashboards/AdminDashboard/AdminHome";
 
 const router = createBrowserRouter([
     {
@@ -21,6 +23,10 @@ const router = createBrowserRouter([
         {
             path: '/cart',
             element: <Cart></Cart>
+        },
+        {
+            path: '/allProducts',
+            element: <AllProducts></AllProducts>
         },
         {
             path: "/details/:id",
@@ -38,7 +44,7 @@ const router = createBrowserRouter([
       children: [
         {
           path: "",
-          element: <Cart></Cart>
+          element: <AdminHome></AdminHome>
         },
         {
           path: "allUsers",
@@ -47,6 +53,10 @@ const router = createBrowserRouter([
         {
           path: "allProducts",
           element: <ManageProducts></ManageProducts>
+        },
+        {
+          path: "orders",
+          element: <ManageOrders></ManageOrders>
         }
       ]
   }

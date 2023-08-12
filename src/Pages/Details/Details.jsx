@@ -7,7 +7,7 @@ import { FaRegStar, FaStar, FaTag } from "react-icons/fa";
 import axios from "axios";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import useCarts from "../../Components/useCarts";
+import useCarts from "../../Hooks/useCarts";
 import Swal from "sweetalert2";
 
 function ThumbnailPlugin(mainRef) {

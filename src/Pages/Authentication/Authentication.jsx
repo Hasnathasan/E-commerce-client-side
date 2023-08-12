@@ -16,13 +16,14 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Authentication = () => {
   const [type, setType] = useState("login");
   const [loading, setLoading] = useState(false);
   const { loginWithEmail, signUpWithEmail, logOut } =
     useContext(AuthContext);
-
+    const navigate = useNavigate()
   const handleLogin = (event) => {
     setLoading(true)
     event.preventDefault();
@@ -51,6 +52,8 @@ const Authentication = () => {
                 'success'
               )
               form.reset();
+              navigate("/")
+              
             })
             .catch((error) => {
               return Swal.fire({

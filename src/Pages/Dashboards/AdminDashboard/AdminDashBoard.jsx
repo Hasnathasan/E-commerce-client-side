@@ -1,4 +1,5 @@
-import { FaBookmark, FaHome, FaRegBookmark } from "react-icons/fa";
+import { FaBookmark, FaHome, FaProductHunt, FaShoppingCart } from "react-icons/fa";
+import { BsFillPeopleFill, BsPersonCircle } from "react-icons/bs";
 import { NavLink, Outlet } from "react-router-dom";
 const AdminDashBoard = () => {
     
@@ -11,12 +12,7 @@ const AdminDashBoard = () => {
           </li>
           <li>
             <NavLink className="p-3 text-base" to="/cart">
-              <FaHome></FaHome> Cart
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="p-3 text-base" to="/instructors">
-              <FaHome></FaHome> Instructors
+              <FaShoppingCart></FaShoppingCart> Cart
             </NavLink>
           </li>
   </>
@@ -41,17 +37,22 @@ const AdminDashBoard = () => {
         <h2 className="text-2xl mb-5">Dashboard</h2>
         <li>
             <NavLink className="p-3 text-base" to=" ">
-              <FaHome></FaHome> Admin
+              <BsPersonCircle></BsPersonCircle> Admin
             </NavLink>
           </li>
           <li>
             <NavLink className="p-3 text-base" to="allUsers">
-              <FaRegBookmark></FaRegBookmark> Manage Users
+              <BsFillPeopleFill></BsFillPeopleFill> Manage Users
             </NavLink>
           </li>
           <li>
             <NavLink className="p-3 text-base" to="allProducts">
-              <FaBookmark></FaBookmark> Manage Products
+              <FaProductHunt></FaProductHunt> Manage Products
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="p-3 text-base" to="orders">
+              <FaBookmark></FaBookmark> Manage Orders
             </NavLink>
           </li>
           <div className="divider"></div>

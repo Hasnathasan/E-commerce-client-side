@@ -9,7 +9,7 @@ import {
   Tooltip,
   Typography,
 } from "@material-tailwind/react";
-import useCarts from "../../Components/useCarts";
+import useCarts from "../../Hooks/useCarts";
 import { FaTrash } from "react-icons/fa";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
@@ -37,7 +37,7 @@ const Cart = () => {
   const handleDelete = id => {
     axios.delete(`http://localhost:5000/deleteCart?id=${id}`)
     .then(res => {
-      if(res.deletedCount > 0){
+      if(res.data.deletedCount > 0){
         Swal.fire(
           'Product removed from cart',
           'Add New products from all product',

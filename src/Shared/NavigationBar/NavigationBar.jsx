@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+
 import {
   Navbar,
   Typography,
@@ -16,8 +17,9 @@ import { Link, NavLink } from "react-router-dom";
 import './NavigationBar.css'
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaAngleDown } from "react-icons/fa";
-import useCarts from "../../Components/useCarts";
-import useUserRole from "../../Components/useUserRole";
+import { AiOutlineLogout } from "react-icons/ai";
+import useCarts from "../../Hooks/useCarts";
+import useUserRole from "../../Hooks/useUserRole";
  
 
 
@@ -57,7 +59,7 @@ const  NavigationBar = () => {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <NavLink to='/allproducts' className="flex items-center">
+        <NavLink to='/allProducts' className="flex items-center">
           All Products
         </NavLink>
       </Typography>
@@ -111,7 +113,7 @@ const  NavigationBar = () => {
                 onClick={closeMenu}
                 className=" rounded hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
               >
-                <div onClick={() => logOut()}>Logout</div>
+               <div  onClick={() => logOut()} className="w-full h-full flex items-center gap-2"><AiOutlineLogout></AiOutlineLogout> <div>Logout</div></div>
               </MenuItem>
         </MenuList>
       </Menu>

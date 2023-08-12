@@ -1,4 +1,4 @@
-import useCosmetics from "../../../Components/useCosmetics";
+import useCosmetics from "../../../Hooks/useCosmetics";
 import Banner from "../Banner/Banner";
 import ProductContainer from "../Product/ProductContainer";
 

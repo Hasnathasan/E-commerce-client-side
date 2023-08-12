@@ -1,10 +1,9 @@
 import { Card, Typography } from "@material-tailwind/react";
-import useProducts from "../../../Hooks/useProducts";
-import { Link } from "react-router-dom";
-const ManageProducts = () => {
-  const [products, isProductsLoading] = useProducts();
-  console.log(products);
-  if(isProductsLoading){
+import useOrders from "../../../Hooks/useOrders";
+const ManageOrders = () => {
+  const [orders, isOrdersLoading] = useOrders();
+  console.log(orders);
+  if(isOrdersLoading){
     return <h1>Loading</h1>
   }
   
@@ -13,11 +12,11 @@ const ManageProducts = () => {
         <Card className="overflow-auto h-full w-full">
         <table className="w-full min-w-max table-auto text-left">
         {
-            products?.length > 0 ? <thead>
+            orders?.length > 0 ? <thead>
             <tr>
               <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
                 <Typography
-                  variant="small"
+                  variant="h6"
                   color="blue-gray"
                   className="font-normal leading-none opacity-70"
                 >
@@ -26,29 +25,29 @@ const ManageProducts = () => {
               </th>
               <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
                 <Typography
-                  variant="small"
+                  variant="h6"
                   color="blue-gray"
                   className="font-normal leading-none opacity-70"
                 >
-                  Brand
+                  Ordered by
                 </Typography>
               </th>
               <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
                 <Typography
-                  variant="small"
+                  variant="h6"
+                  color="blue-gray"
+                  className="font-normal leading-none opacity-70"
+                >
+                  Price
+                </Typography>
+              </th>
+              <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
+                <Typography
+                  variant="h6"
                   color="blue-gray"
                   className="font-normal leading-none opacity-70"
                 >
                   Category
-                </Typography>
-              </th>
-              <th className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
-                <Typography
-                  variant="small"
-                  color="blue-gray"
-                  className="font-normal leading-none opacity-70"
-                >
-                  Details
                 </Typography>
               </th>
             </tr>
@@ -57,7 +56,7 @@ const ManageProducts = () => {
           </div>
         }
         <tbody>
-          {products?.map((product, index) => (
+          {orders?.map((product, index) => (
             <tr key={index} className="even:bg-blue-gray-50/50">
               <td className="p-4">
                 <Typography
@@ -65,7 +64,7 @@ const ManageProducts = () => {
                   color="blue-gray"
                   className="font-normal"
                 >
-                  {product.specification.title}
+                  {product?.specification.title}
                 </Typography>
               </td>
               <td className="p-4">
@@ -74,7 +73,7 @@ const ManageProducts = () => {
                   color="blue-gray"
                   className="font-normal"
                 >
-                  {product.specification.brand}
+                  {product?.addedBy}
                 </Typography>
               </td>
               <td className="p-4">
@@ -83,11 +82,17 @@ const ManageProducts = () => {
                   color="blue-gray"
                   className="font-medium"
                 >
-                  {product.category}
+                  {product?.price?.real_price} Tk
                 </Typography>
               </td>
               <td className="p-4">
-              <Link to={`/details/${product._id}`} ><button className="md:px-4 py-2 w-20 md:w-32 border border-black hover:bg-[#63b5f8] hover:border-[#63b5f8] hover:text-white">View Details</button></Link> 
+                <Typography
+                  variant="small"
+                  color="blue-gray"
+                  className="font-medium"
+                >
+                  {product?.category}
+                </Typography>
               </td>
             </tr>
           ))}
@@ -98,7 +103,7 @@ const ManageProducts = () => {
   );
 };
 
-export default ManageProducts;
+export default ManageOrders;
 
 
 

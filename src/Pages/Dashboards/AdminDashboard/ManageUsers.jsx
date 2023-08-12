@@ -1,6 +1,6 @@
 import { Button, Card, Chip, Typography } from "@material-tailwind/react";
 import axios from "axios";
-import useUsers from "../../../Components/useUsers";
+import useUsers from "../../../Hooks/useUsers";
 const ManageUsers = () => {
   const [users, isUsersLoading, refetch] = useUsers()
   const handleRoleChange = (email, role) => {

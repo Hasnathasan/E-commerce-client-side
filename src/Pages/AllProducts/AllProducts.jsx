@@ -1,7 +1,7 @@
 import { Card, Typography } from "@material-tailwind/react";
-import useProducts from "../../../Hooks/useProducts";
 import { Link } from "react-router-dom";
-const ManageProducts = () => {
+import useProducts from "../../Hooks/useProducts";
+const AllProducts = () => {
   const [products, isProductsLoading] = useProducts();
   console.log(products);
   if(isProductsLoading){
@@ -9,7 +9,7 @@ const ManageProducts = () => {
   }
   
   return (
-    <div className="w-[90%] my-20">
+    <div className="w-[95%] md:w-[80%] mx-auto my-20">
         <Card className="overflow-auto h-full w-full">
         <table className="w-full min-w-max table-auto text-left">
         {
@@ -98,7 +98,7 @@ const ManageProducts = () => {
   );
 };
 
-export default ManageProducts;
+export default AllProducts;
 
 
 
