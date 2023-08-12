@@ -75,7 +75,7 @@ const Details = () => {
     return <h1>Loading</h1>;
   }
   const { specification, price, category, images, review, rating } = product;
-  const cartItem = {addedBy: user?.email, category, images, specification, review, rating}
+  const cartItem = {addedBy: user?.email, price, category, images, specification, review, rating}
   const handleAddToCart = () => {
     axios.post(`http://localhost:5000/carts`, cartItem)
       .then(res => {

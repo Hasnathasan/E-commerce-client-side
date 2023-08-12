@@ -4,6 +4,7 @@ import ProductContainer from "../Product/ProductContainer";
 
 const Home = () => {
     const [cosmetics] = useCosmetics();
+    console.log(cosmetics);
     return (
         <div>
             <Banner></Banner>

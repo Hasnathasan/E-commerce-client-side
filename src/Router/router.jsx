@@ -7,6 +7,7 @@ import Authentication from "../Pages/Authentication/Authentication";
 import AdminDashBoard from "../Pages/Dashboards/AdminDashboard/AdminDashBoard";
 import ProductContainer from "../Pages/Home/Product/ProductContainer";
 import ManageUsers from "../Pages/Dashboards/AdminDashboard/ManageUsers";
+import ManageProducts from "../Pages/Dashboards/AdminDashboard/ManageProducts";
 
 const router = createBrowserRouter([
     {
@@ -45,7 +46,7 @@ const router = createBrowserRouter([
         },
         {
           path: "allProducts",
-          element: <Cart></Cart>
+          element: <ManageProducts></ManageProducts>
         }
       ]
   }

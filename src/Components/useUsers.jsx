@@ -4,7 +4,7 @@ import axios from "axios";
 
 const useUsers = () => {
     const { data: users, isLoading: isUsersLoading, refetch } = useQuery({
-        queryKey: ['cosmetics'],
+        queryKey: ['allUsers'],
         queryFn: async() => {
             return axios.get('http://localhost:5000/users')
                 .then(result => {
