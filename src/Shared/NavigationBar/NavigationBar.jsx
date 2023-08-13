@@ -31,7 +31,6 @@ const  NavigationBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [carts] = useCarts();
   const [userRole] = useUserRole();
-  console.log(userRole);
   const {user, logOut} = useContext(AuthContext);
   useEffect(() => {
     window.addEventListener(

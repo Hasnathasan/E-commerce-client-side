@@ -9,9 +9,8 @@ const useUserRole = () => {
     const { data: userRole, isLoading: isUserRoleLoading } = useQuery({
         queryKey: [`USER`, user?.email],
         queryFn: async () => {
-            return axios.get(`http://localhost:5000/userRole?email=${user?.email}`)
+            return axios.get(`https://e-commerce-server-side-eosin.vercel.app/userRole?email=${user?.email}`)
             .then(result => {
-                console.log(result);
                 return result.data;
             })
         },

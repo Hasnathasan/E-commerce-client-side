@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import useProducts from "../../Hooks/useProducts";
 const AllProducts = () => {
   const [products, isProductsLoading] = useProducts();
-  console.log(products);
   if(isProductsLoading){
     return <h1>Loading</h1>
   }

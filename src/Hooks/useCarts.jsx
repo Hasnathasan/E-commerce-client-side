@@ -9,7 +9,7 @@ const useCarts = () => {
     const { data: carts, isLoading: isCartsLoading, refetch } = useQuery({
         queryKey: ['carts', user?.email],
         queryFn: async() => {
-            return axios.get(`http://localhost:5000/carts?email=${user?.email}`)
+            return axios.get(`https://e-commerce-server-side-eosin.vercel.app/carts?email=${user?.email}`)
                 .then(result => {
                     return result.data;
                 })

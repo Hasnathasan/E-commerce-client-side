@@ -33,7 +33,7 @@ const Authentication = () => {
     const number = form.number.value;
     const password = form.password.value;
     axios
-      .get(`http://localhost:5000/eachUsers?email=${email}`)
+      .get(`https://e-commerce-server-side-eosin.vercel.app/eachUsers?email=${email}`)
       .then((result) => {
         if (result.data.number !== number) {
           setLoading(false)
@@ -46,7 +46,6 @@ const Authentication = () => {
         } else {
           loginWithEmail(email, password)
             .then((result) => {
-              console.log(result.user);
               Swal.fire(
                 'Congratulations',
                 'Logged in successfull',
@@ -74,11 +73,10 @@ const Authentication = () => {
     const email = form.emailForSignUp.value;
     const number = form.numberForSignUp.value;
     const password = form.passwordForSignUp.value;
-    console.log(email, number, password);
     signUpWithEmail(email, password)
       .then((result) => {
         const newUser = { email: result.user.email, number: number, role: "user" };
-        axios.post("http://localhost:5000/users", newUser).then((data) => {
+        axios.post("https://e-commerce-server-side-eosin.vercel.app/users", newUser).then((data) => {
           if (data.data.insertedId) {
             Swal.fire(
               'Congratulation',

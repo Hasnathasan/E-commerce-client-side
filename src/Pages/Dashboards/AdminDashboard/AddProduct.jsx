@@ -14,12 +14,10 @@ const AddClass = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [image, setImage] = useState([])
   const onSubmit = async(data) => {
-    console.log(data);
     const { title, summary, brand, real_price, discounted_price, category, images, review, rating } = data;
     setSelectedFile(images[0])
     const formData = new FormData();
     formData.append('image', selectedFile);
-    console.log(images);
     try {
         const response = await fetch(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBBAPI}`, {
           method: 'POST',
@@ -49,9 +47,8 @@ const AddClass = () => {
       price: {real_price: parseInt(real_price), discounted_price: parseInt(discounted_price)},
       specification: { title, brand, summary}
     };
-    console.log(newProduct);
 
-    axios.post('http://localhost:5000/products', newProduct)
+    axios.post('https://e-commerce-server-side-eosin.vercel.app/products', newProduct)
         .then(res => {
             if(res.data.insertedId){
                 reset()

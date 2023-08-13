@@ -6,7 +6,7 @@ const useOrders = () => {
     const { data: orders, isLoading: isOrdersLoading } = useQuery({
         queryKey: ["orders"],
         queryFn: async () => {
-            return axios.get('http://localhost:5000/orders')
+            return axios.get('https://e-commerce-server-side-eosin.vercel.app/orders')
             .then(result => {
                 return result.data;
             });

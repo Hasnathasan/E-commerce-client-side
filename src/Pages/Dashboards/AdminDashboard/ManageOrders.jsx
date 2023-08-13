@@ -2,7 +2,6 @@ import { Card, Typography } from "@material-tailwind/react";
 import useOrders from "../../../Hooks/useOrders";
 const ManageOrders = () => {
   const [orders, isOrdersLoading] = useOrders();
-  console.log(orders);
   if(isOrdersLoading){
     return <h1>Loading</h1>
   }

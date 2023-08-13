@@ -5,7 +5,7 @@ const useProduct = (id) => {
         queryKey: [`product/${id}`],
         queryFn: async () => {
           const res = await fetch(
-            `http://localhost:5000/products/details?id=${id}`
+            `https://e-commerce-server-side-eosin.vercel.app/products/details?id=${id}`
           );
           return res.json();
         },

@@ -3,7 +3,6 @@ import useProducts from "../../../Hooks/useProducts";
 import { Link } from "react-router-dom";
 const ManageProducts = () => {
   const [products, isProductsLoading] = useProducts();
-  console.log(products);
   if(isProductsLoading){
     return <h1>Loading</h1>
   }

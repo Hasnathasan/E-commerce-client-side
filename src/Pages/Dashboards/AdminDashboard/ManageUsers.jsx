@@ -4,10 +4,8 @@ import useUsers from "../../../Hooks/useUsers";
 const ManageUsers = () => {
   const [users, isUsersLoading, refetch] = useUsers()
   const handleRoleChange = (email, role) => {
-    console.log(email, role);
-    axios.patch(`http://localhost:5000/changeUserRole/${email}`, {role})
+    axios.patch(`https://e-commerce-server-side-eosin.vercel.app/changeUserRole/${email}`, {role})
         .then(data => {
-            console.log(data.data)
             if(data.data.modifiedCount > 0){
                 refetch()
             }

@@ -28,14 +28,12 @@ const Cart = () => {
     setTotalBalance(total)
   },[carts])
   
-  console.log(carts);
   if (isCartsLoading && loading) {
     return <h1>Loading</h1>;
   }
   const orders = carts?.map(({addedBy, category, price, specification}) => {return  {addedBy, category, price, specification}})
-  console.log(orders);
   const handleDelete = id => {
-    axios.delete(`http://localhost:5000/deleteCart?id=${id}`)
+    axios.delete(`https://e-commerce-server-side-eosin.vercel.app/deleteCart?id=${id}`)
     .then(res => {
       if(res.data.deletedCount > 0){
         Swal.fire(
@@ -49,10 +47,10 @@ const Cart = () => {
     }
     const handlePayment = event => {
       event.preventDefault()
-      axios.post(`http://localhost:5000/orders`, orders)
+      axios.post(`https://e-commerce-server-side-eosin.vercel.app/orders`, orders)
     .then(res => {
       if(res.data.insertedCount > 0){
-        axios.delete(`http://localhost:5000/deletefullCart/${user?.email}`)
+        axios.delete(`https://e-commerce-server-side-eosin.vercel.app/deletefullCart/${user?.email}`)
         .then(res => {
           if(res.data.deletedCount > 0){
             Swal.fire(

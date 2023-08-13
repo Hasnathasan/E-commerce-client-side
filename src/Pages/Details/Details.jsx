@@ -52,12 +52,11 @@ const Details = () => {
     queryKey: [`product/${id}`],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/products/details?id=${id}`
+        `https://e-commerce-server-side-eosin.vercel.app/products/details?id=${id}`
       );
       return res.json();
     },
   });
-  console.log(product);
   
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
@@ -78,10 +77,9 @@ const Details = () => {
   const { specification, price, category, images, review, rating } = product;
   const cartItem = {addedBy: user?.email, price, category, images, specification, review, rating}
   const handleAddToCart = () => {
-    axios.post(`http://localhost:5000/carts`, cartItem)
+    axios.post(`https://e-commerce-server-side-eosin.vercel.app/carts`, cartItem)
       .then(res => {
         refetch()
-        console.log(res);
         if(res.data?.insertedId){
           Swal.fire(
             'Product is added to cart',
