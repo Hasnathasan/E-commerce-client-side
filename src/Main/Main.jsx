@@ -1,6 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import NavigationBar from "../Shared/NavigationBar/NavigationBar";
 import { useEffect } from "react";
+import Footer from "../Shared/Footer/Footer";
 
 const Main = () => {
     const location = useLocation();
@@ -11,6 +12,7 @@ const Main = () => {
         <div>
             <NavigationBar></NavigationBar>
             <Outlet></Outlet>
+            <Footer></Footer>
         </div>
     );
 };

@@ -51,6 +51,11 @@ const AdminDashBoard = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink className="p-3 text-base" to="addProduct">
+              <FaProductHunt></FaProductHunt> Add New Product
+            </NavLink>
+          </li>
+          <li>
             <NavLink className="p-3 text-base" to="orders">
               <FaBookmark></FaBookmark> Manage Orders
             </NavLink>

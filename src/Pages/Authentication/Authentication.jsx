@@ -17,6 +17,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import eMart from '../../../public/logo.png'
 
 const Authentication = () => {
   const [type, setType] = useState("login");
@@ -106,7 +107,7 @@ const Authentication = () => {
         className="m-0 grid place-items-center rounded-b-none py-4 px-4 text-center"
       >
         <div className="mb-4 rounded-full border border-white/10 bg-white/10 p-6 text-white">
-          Hi
+          <img className="w-24" src={eMart} alt="" />
         </div>
       </CardHeader>
       <CardBody>

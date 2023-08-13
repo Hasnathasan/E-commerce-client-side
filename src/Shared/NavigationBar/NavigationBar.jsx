@@ -20,6 +20,7 @@ import { FaAngleDown } from "react-icons/fa";
 import { AiOutlineLogout } from "react-icons/ai";
 import useCarts from "../../Hooks/useCarts";
 import useUserRole from "../../Hooks/useUserRole";
+import eMart from '../../../public/logo.png'
  
 
 
@@ -121,13 +122,12 @@ const  NavigationBar = () => {
   return (
       <Navbar className="sticky top-0 z-50 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
-          <Typography
+          <Link to='/'><Typography
             as="a"
-            href="#"
             className="mr-4 cursor-pointer py-1.5 font-medium"
           >
-            <Link to='/'>Buy Online</Link>
-          </Typography>
+            <img className="w-32" src={eMart} alt="" />
+          </Typography></Link>
             <div className="mr-4 hidden lg:block">{navList}</div>
           <div className="flex items-center gap-4">
             {

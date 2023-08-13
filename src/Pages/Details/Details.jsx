@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useCarts from "../../Hooks/useCarts";
 import Swal from "sweetalert2";
+import { Card } from "@material-tailwind/react";
 
 function ThumbnailPlugin(mainRef) {
   return (slider) => {
@@ -91,7 +92,7 @@ const Details = () => {
       })
   }
   return (
-    <div className="mx-auto max-w-[1160px] my-10 rounded-lg shadow-lg shadow-cyan-50">
+    <Card className="mx-auto max-w-[1160px] my-10 rounded-lg p-5">
       <div className="bg-white flex flex-col md:flex-row p-5 gap-10"> 
         <div className="md:w-[400px]">
           <div ref={sliderRef} className="keen-slider w-full mb-7  border border-gray-400">
@@ -144,7 +145,7 @@ const Details = () => {
             </div>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 
