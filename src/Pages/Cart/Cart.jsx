@@ -66,11 +66,11 @@ const Cart = () => {
     }
     
   return (
-    <div className="container mx-auto">
+    <div className="container lg:mx-auto">
     
     {
       carts?.length > 0 ? <div>
-        <Card className=" max-w-[400px] p-6 my-8">
+        <Card className=" mx-5 max-w-[400px] p-6 my-8">
           <div className="flex justify-between items-center">
             <span className="text-xl font-bold">Total: {totalBalance} TK</span> 
             <button onClick={handleOpen} className="md:px-4 py-2 w-20 md:w-28 border border-black hover:bg-[#44a849] hover:border-[#44a849] hover:text-white">Pay</button>
@@ -108,7 +108,7 @@ const Cart = () => {
         </Card>
       </Dialog>
           </Card>
-         <Card className=" h-full w-full overflow-auto mb-40">
+         <Card className="h-full w-[90%] mx-auto md:w-full overflow-auto mb-40">
         
       <table className="w-full min-w-max table-auto text-left">
         <thead>
@@ -230,7 +230,7 @@ const Cart = () => {
           ))}
         </tbody>
       </table>
-    </Card></div>: <Card className="text-center w-[70%] mx-auto my-16 overflow-hidden py-40"><h1 className="text-5xl font-bold text-green-500 mb-5">Nothing is here</h1>
+    </Card></div>: <Card className="text-center w-[85%] lg:w-[70%] mx-auto my-16 overflow-hidden py-40"><h1 className="text-5xl font-bold text-green-500 mb-5">Nothing is here</h1>
           <p className="text-2xl font-semibold text-center">Add Product From All Product</p>
           </Card>
     }

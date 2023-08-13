@@ -74,7 +74,7 @@ const ProductContainer = ({products, heading}) => {
         ]
       };
     return (
-        <Card className=" max-w-[1260px] mx-auto bg-white px-5 py-10  my-20">
+        <Card className=" max-w-[1260px] mx-6 lg:mx-auto bg-white px-5 py-10  my-20">
           <h2 className="text-2xl font-bold text-gray-700 mb-3">{heading}</h2>
             <Slider  {...settings}> 
               {

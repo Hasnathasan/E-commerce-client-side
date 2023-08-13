@@ -15,7 +15,7 @@ import { Card } from '@material-tailwind/react'
 const Gallery = () => {
     const gallery = [[Watch1, Watch2, Watch3], [Watch4, Watch5, Watch6], [Watch7, Watch8, Watch9], [Watch10, Watch11, Watch12]]
     return (
-        <Card className='max-w-[1240px] mx-auto bg-cyan-50  p-16 my-20'>
+        <Card className='max-w-[1240px] lg:mx-auto mx-3 bg-cyan-50 p-6 md:p-16 my-20'>
             <h1 className='text-3xl font-bold mb-10'>Explore all new <span className='text-cyan-500 text-4xl'>SMART WATCH</span></h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 ">
            

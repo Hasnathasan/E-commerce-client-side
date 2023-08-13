@@ -2,7 +2,6 @@ import { Button } from "@material-tailwind/react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { useState } from "react";
 
 const AddClass = () => {
   const {
@@ -11,60 +10,75 @@ const AddClass = () => {
     formState: { errors },
     reset,
   } = useForm();
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [image, setImage] = useState([])
-  const onSubmit = async(data) => {
-    const { title, summary, brand, real_price, discounted_price, category, images, review, rating } = data;
-    setSelectedFile(images[0])
-    const formData = new FormData();
-    formData.append('image', selectedFile);
-    try {
-        const response = await fetch(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBBAPI}`, {
-          method: 'POST',
-          body: formData,
-        });
-  
-  
-        if (response.ok) {
-            const data = await response.json();
-            setImage(data.data.url)
-        } else {
-            return Swal.fire({
-                icon: 'error',
-                title: 'Error!',
-                text: "Try to upload another image. You can't use same image twice!"
-              })
-        }
-      } catch (error) {
-        console.error('Error uploading image:', error);
-      }
-  
-    const newProduct = {
+  const onSubmit = async (data) => {
+    const {
+      title,
+      summary,
+      brand,
+      real_price,
+      discounted_price,
       category,
-      images: [image],
-      review: parseInt(review),
-      rating: parseInt(rating),
-      price: {real_price: parseInt(real_price), discounted_price: parseInt(discounted_price)},
-      specification: { title, brand, summary}
-    };
+      images,
+      review,
+      rating,
+    } = data;
+    const selectedFiles = images[0];
+    try {
+      const formData = new FormData();
+      formData.append("image", selectedFiles);
+      const response = await fetch(
+        `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBBAPI}`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      if (response.ok) {
+        const imageData = await response.json();
+        const uploadedImageURL = imageData.data.display_url;
+        const newProduct = {
+          category,
+          images: [uploadedImageURL],
+          review: parseInt(review),
+          rating: parseInt(rating),
+          price: {
+            real_price: parseInt(real_price),
+            discounted_price: parseInt(discounted_price),
+          },
+          specification: { title, brand, summary },
+        };
 
-    axios.post('https://e-commerce-server-side-eosin.vercel.app/products', newProduct)
-        .then(res => {
-            if(res.data.insertedId){
-                reset()
-                Swal.fire(
-                    'Product Added',
-                    'It will visible to users',
-                    'success'
-                  )
+        axios
+          .post(
+            "https://e-commerce-server-side-eosin.vercel.app/products",
+            newProduct
+          )
+          .then((res) => {
+            if (res.data.insertedId) {
+              reset();
+              Swal.fire("Product Added", "It will visible to users", "success");
             }
-        })
-
+          });
+      } else {
+        return Swal.fire({
+          icon: "error",
+          title: "Error!",
+          text: "Try to upload another image.",
+        });
+      }
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
   };
   return (
     <div className="w-full my-16">
-      <form onSubmit={handleSubmit(onSubmit)} className="w-[90%] mx-auto card bg-white shadow-lg p-10">
-        <h2 className="text-3xl font-bold text-slate-500 mb-4 text">Add a new Product</h2>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-[90%] mx-auto card bg-white shadow-lg p-10"
+      >
+        <h2 className="text-3xl font-bold text-slate-500 mb-4 text">
+          Add a new Product
+        </h2>
         <div className="grid gap-4 items-center justify-center sm:grid-cols-2 sm:gap-6">
           <div className="">
             <label
@@ -120,10 +134,15 @@ const AddClass = () => {
                 Category Name is required
               </p>
             )}
-            <select name="category" id="category" {...register("category", { required: true })} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" >
-                <option value="cosmetics">cosmetic</option>
-                <option value="electronic">electronic</option>
-                <option value="fashion">fashion</option>
+            <select
+              name="category"
+              id="category"
+              {...register("category", { required: true })}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+            >
+              <option value="cosmetics">cosmetic</option>
+              <option value="electronic">electronic</option>
+              <option value="fashion">fashion</option>
             </select>
           </div>
           <div className="w-full">
@@ -233,19 +252,26 @@ const AddClass = () => {
           </div>
         </div>
         <label
-              htmlFor="summary"
-              className="block mb-2 mt-4 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              Summary
-            </label>
-            {errors.summary?.type === "required" && (
-              <p className="text-red-500" role="alert">
-                Summary is required
-              </p>
-            )}
-        <textarea {...register("summary", { required: true })} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" name="summary" id="summary" cols="30" rows="5"></textarea>
-        <Button className="mt-5" type="submit" color="blue">
-          Add Class
+          htmlFor="summary"
+          className="block mb-2 mt-4 text-sm font-medium text-gray-900 dark:text-white"
+        >
+          Summary
+        </label>
+        {errors.summary?.type === "required" && (
+          <p className="text-red-500" role="alert">
+            Summary is required
+          </p>
+        )}
+        <textarea
+          {...register("summary", { required: true })}
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+          name="summary"
+          id="summary"
+          cols="30"
+          rows="5"
+        ></textarea>
+        <Button className="mt-5" type="submit" variant="gradient">
+          Add Product
         </Button>
       </form>
     </div>
