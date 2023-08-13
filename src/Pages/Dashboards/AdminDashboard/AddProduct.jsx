@@ -2,6 +2,7 @@ import { Button } from "@material-tailwind/react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { useState } from "react";
 
 const AddClass = () => {
   const {
@@ -10,12 +11,39 @@ const AddClass = () => {
     formState: { errors },
     reset,
   } = useForm();
-  const onSubmit = (data) => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [image, setImage] = useState([])
+  const onSubmit = async(data) => {
     console.log(data);
     const { title, summary, brand, real_price, discounted_price, category, images, review, rating } = data;
+    setSelectedFile(images[0])
+    const formData = new FormData();
+    formData.append('image', selectedFile);
+    console.log(images);
+    try {
+        const response = await fetch(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBBAPI}`, {
+          method: 'POST',
+          body: formData,
+        });
+  
+  
+        if (response.ok) {
+            const data = await response.json();
+            setImage(data.data.url)
+        } else {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: "Try to upload another image. You can't use same image twice!"
+              })
+        }
+      } catch (error) {
+        console.error('Error uploading image:', error);
+      }
+  
     const newProduct = {
       category,
-      images: [images],
+      images: [image],
       review: parseInt(review),
       rating: parseInt(rating),
       price: {real_price: parseInt(real_price), discounted_price: parseInt(discounted_price)},
@@ -75,7 +103,7 @@ const AddClass = () => {
               </p>
             )}
             <input
-              type="url"
+              type="file"
               {...register("images", { required: true })}
               name="images"
               id="images"

@@ -110,7 +110,7 @@ const Cart = () => {
         </Card>
       </Dialog>
           </Card>
-         <Card className=" h-full w-full overflow-auto">
+         <Card className=" h-full w-full overflow-auto mb-40">
         
       <table className="w-full min-w-max table-auto text-left">
         <thead>
