@@ -1,21 +1,26 @@
-import { FaBookmark, FaHome, FaProductHunt, FaShoppingCart } from "react-icons/fa";
+import {
+  FaBookmark,
+  FaHome,
+  FaProductHunt,
+  FaShoppingCart,
+} from "react-icons/fa";
 import { BsFillPeopleFill, BsPersonCircle } from "react-icons/bs";
 import { NavLink, Outlet } from "react-router-dom";
 const AdminDashBoard = () => {
-    
-  
-  const mainLinks = <>
-  <li>
-            <NavLink className="p-3 text-base" to="/">
-              <FaHome></FaHome> Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className="p-3 text-base" to="/cart">
-              <FaShoppingCart></FaShoppingCart> Cart
-            </NavLink>
-          </li>
-  </>
+  const mainLinks = (
+    <>
+      <li>
+        <NavLink className="p-3 text-base" to="/">
+          <FaHome></FaHome> Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className="p-3 text-base" to="/cart">
+          <FaShoppingCart></FaShoppingCart> Cart
+        </NavLink>
+      </li>
+    </>
+  );
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -34,8 +39,8 @@ const AdminDashBoard = () => {
         {/* Sidebar content here */}
         <div className="w-80"></div>
         <ul className="menu flex-nowrap top-0 fixed px-8 h-screen bg-white py-10 w-80 space-y-2">
-        <h2 className="text-2xl mb-5">Dashboard</h2>
-        <li>
+          <h2 className="text-2xl mb-5">Dashboard</h2>
+          <li>
             <NavLink className="p-3 text-base" to=" ">
               <BsPersonCircle></BsPersonCircle> Admin
             </NavLink>
@@ -61,8 +66,7 @@ const AdminDashBoard = () => {
             </NavLink>
           </li>
           <div className="divider"></div>
-            {mainLinks}
-          
+          {mainLinks}
         </ul>
       </div>
     </div>
